@@ -1,0 +1,10 @@
+.idea
+
+/vendor/
+/bin/
+
+tools/chef/cookbooks/*
+!tools/chef/cookbooks/.gitkeep
+tools/chef/tmp
+
+tools/vagrant/.vagrant
