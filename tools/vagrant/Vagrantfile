@@ -112,7 +112,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             :bind_address => "127.0.0.1"
         },
         :apache => {
-            :default_site_enabled => "false"
+            :default_site_enabled => false
         },
         :project => {
             :site_name => "project",
