@@ -3,8 +3,6 @@ PHP Vagrant Virtual Machine
 
 Can be used for bringing up simple lamp (debian) virtual machine with composer and fish shell preinstalled.
 
-#Demo Project: Petition Website
-
 ##Requirements
 1. `librarian-chef` is installed (tested with v.0.0.2)
    (`$ gem install librarian-chef`)
