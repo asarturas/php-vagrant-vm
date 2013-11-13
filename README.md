@@ -14,8 +14,10 @@ Can be used for bringing up simple lamp (debian) virtual machine with composer a
 ##Installation Instructions
 
 1. Install dependencies in chef: `$ cd tools/chef && librarian-chef install`
+1. Change project settings at your will in `tools/vagrant/Vagrantfile`
 1. Build virtual machine: `$ cd ../vagrant && vagrant up`
 1. Switch to virtual machine shell: `$ vagrant ssh`
 1. Install dependencies in composer: `$ cd /mnt/project` and `composer install`
 
 P.S. Don't forget to add virtual host into `hosts` file on your machine, where you run vm
+   (by default: `192.168.33.10   project.development.local`)
