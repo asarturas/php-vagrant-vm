@@ -4,50 +4,57 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-  config.vm.box = "debian710"
+  config.vm.box = "debian"
   config.vm.box_url = "https://opscode-vm-bento.s3.amazonaws.com/vagrant/opscode_debian-7.1.0_provisionerless.box"
   config.vm.network :private_network, ip: "192.168.33.10"
   config.vm.synced_folder "../../", "/mnt/project", owner: "www-data", group: "vagrant", mount_options: [ "dmode=775", "fmode=774" ]
 
   config.omnibus.chef_version = :latest
 
-   config.vm.provision :chef_solo do |chef|
-     chef.cookbooks_path = ["../chef/cookbooks", "../chef/site-cookbooks"]
-     chef.add_recipe "project::apt-get-update"
-     chef.add_recipe "apache2"
-     chef.add_recipe "mysql::server"
-     chef.add_recipe "php"
-     chef.add_recipe "php::module_mysql"
-     chef.add_recipe "php::module_apc"
-     chef.add_recipe "php::module_curl"
-     chef.add_recipe "php::module_sqlite3"
-     chef.add_recipe "apache2::mod_php5"
-     chef.add_recipe "apache2::mod_rewrite"
-     chef.add_recipe "chef-php-extra::xdebug"
-     chef.add_recipe "composer"
-     chef.add_recipe "git"
-     chef.add_recipe "project"
-     chef.add_recipe "project::remove-php-module-config-duplicates"
-     chef.add_recipe "project::install-and-enable-fishshell"
-     chef.add_recipe "project::add-hosts-entry"
-     chef.json = {
-        :mysql_password => "root",
-        :mysql => {
-            :server_debian_password => "root",
-            :server_root_password => "root",
-            :server_repl_password => "root",
-            :bind_address => "127.0.0.1"
-        },
-        :apache => {
-            :default_site_enabled => false
-        },
-        :project => {
-            :site_name => "project",
-            :server_name => "project.development.local",
-            :server_aliases => ["project.development.local"],
-            :docroot => "/mnt/project",
-            :allow_override => "All"
-        }
-     }
-   end
+  config.vm.provider :virtualbox do |vb|
+    vb.name = "sandbox"
+    vb.memory = 384
+    vb.gui = false
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+  end
+
+  config.vm.provision :chef_solo do |chef|
+    chef.cookbooks_path = ["../chef/cookbooks", "../chef/site-cookbooks"]
+    chef.add_recipe "project::apt-get-update"
+    chef.add_recipe "apache2"
+    chef.add_recipe "mysql::server"
+    chef.add_recipe "php"
+    chef.add_recipe "php::module_mysql"
+    chef.add_recipe "php::module_apc"
+    chef.add_recipe "php::module_curl"
+    chef.add_recipe "php::module_sqlite3"
+    chef.add_recipe "apache2::mod_php5"
+    chef.add_recipe "apache2::mod_rewrite"
+    chef.add_recipe "chef-php-extra::xdebug"
+    chef.add_recipe "composer"
+    chef.add_recipe "git"
+    chef.add_recipe "project"
+    chef.add_recipe "project::remove-php-module-config-duplicates"
+    chef.add_recipe "project::install-and-enable-fishshell"
+    chef.add_recipe "project::add-hosts-entry"
+    chef.json = {
+      :mysql_password => "root",
+      :mysql => {
+        :server_debian_password => "root",
+        :server_root_password => "root",
+        :server_repl_password => "root",
+        :bind_address => "127.0.0.1"
+      },
+      :apache => {
+        :default_site_enabled => false
+      },
+      :project => {
+        :site_name => "sandbox",
+        :server_name => "sandbox.development.local",
+        :server_aliases => ["sandbox.development.local"],
+        :docroot => "/mnt/project",
+        :allow_override => "All"
+      }
+    }
+  end
 end
