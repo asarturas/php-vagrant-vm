@@ -31,6 +31,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "apache2::mod_php5"
     chef.add_recipe "apache2::mod_rewrite"
     chef.add_recipe "chef-php-extra::xdebug"
+    chef.add_recipe "chef-php-extra::module_intl"
     chef.add_recipe "composer"
     chef.add_recipe "git"
     chef.add_recipe "project"
