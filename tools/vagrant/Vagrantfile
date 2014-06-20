@@ -11,6 +11,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.omnibus.chef_version = :latest
 
+  config.librarian_chef.cheffile_dir = "../chef"
+
   config.vm.provider :virtualbox do |vb|
     vb.name = "sandbox"
     vb.memory = 384

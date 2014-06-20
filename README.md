@@ -10,12 +10,13 @@ Can be used for bringing up simple lamp (debian) virtual machine with composer a
    (`http://downloads.vagrantup.com`)
 1. `vagrant-omnibus` extension is installed (tested with v.1.1.1)
    (`$ vagrant plugin install vagrant-omnibus`)
+1. `vagrant-librarian-chef` extension is installed (tested with v.0.1.5)
+   (`$ vagrant plugin install vagrant-librarian-chef`)
 
 ##Installation Instructions
 
-1. Install dependencies in chef: `$ cd tools/chef && librarian-chef install`
 1. Change project settings at your will in `tools/vagrant/Vagrantfile`
-1. Build virtual machine: `$ cd ../vagrant && vagrant up`
+1. Build virtual machine: `$ cd tools/vagrant && vagrant up`
 1. Switch to virtual machine shell: `$ vagrant ssh`
 1. Install dependencies in composer: `$ cd /mnt/project` and `composer install`
 
