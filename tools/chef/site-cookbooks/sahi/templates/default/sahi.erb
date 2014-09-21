@@ -1,0 +1,33 @@
+#! /bin/sh
+
+### BEGIN INIT INFO
+# Provides: sahi
+# Required-Start:    $all $single $rc.local
+# Required-Stop:
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start sahi
+### END INIT INFO
+
+NAME=sahi
+DAEMON_DIR=/opt/sahi_pro/userdata/bin
+DAEMON=$DAEMON_DIR/start_sahi.sh
+DAEMON_ARGS=""
+PIDFILE=/var/run/$NAME.pid
+SCRIPTNAME=/etc/init.d/$NAME
+
+case "$1" in
+    start)
+        cd /opt/sahi_pro/userdata/bin
+        nohup ./start_sahi.sh 2>$1 &
+        echo '\n'
+        ;;
+    stop)
+        ps aux | grep '[s]ahi' | awk '{print $2}' | xargs kill -15
+        ;;
+    *)
+        echo "Usage: /etc/init.d/sahi {start|stop}"
+        exit 1
+esac
+
+exit 0
