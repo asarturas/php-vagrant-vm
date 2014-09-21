@@ -22,6 +22,7 @@ app/logs/*
 build/
 vendor/*
 !vendor/.gitkeep
-bin/
+bin/*
+!bin/.gitkeep
 composer.phar
 composer.lock
