@@ -1,10 +1,27 @@
 .idea
 
-/vendor/
-/bin/
-
 tools/chef/cookbooks/*
 !tools/chef/cookbooks/.gitkeep
 tools/chef/tmp
 
 tools/vagrant/.vagrant
+
+node_modules
+
+web/bundles/
+web/js/*
+!web/js/.gitkeep
+web/css/*
+!web/css/.gitkeep
+app/bootstrap.php.cache
+app/cache/*
+app/config/parameters.yml
+app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+build/
+vendor/*
+!vendor/.gitkeep
+bin/
+composer.phar
+composer.lock
