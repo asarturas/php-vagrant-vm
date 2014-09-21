@@ -1,0 +1,25 @@
+{
+    "name": "staging",
+    "description": "",
+    "cookbook_versions": {},
+    "json_class": "Chef::Environment",
+    "chef_type": "environment",
+    "default_attributes": {
+        "mysql_password": "root",
+        "mysql": {
+            "server_debian_password": "root",
+            "server_root_password": "root",
+            "server_repl_password": "root",
+            "bind_address": "127.0.0.1"
+        },
+        "project": {
+            "site_name": "php-vagrant-vm",
+            "server_name": "staging.php-vagrant-vm",
+            "server_aliases": [
+            ],
+            "docroot": "/var/www/staging.php-vagrant-vm/current/web",
+            "allow_override": "All"
+        }
+    },
+    "override_attributes": {}
+}
