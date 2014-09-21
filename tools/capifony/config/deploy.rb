@@ -1,4 +1,4 @@
-set :application, "project.domain.name.com"
+set :application, "php-vagrant-vm"
 set :domain,      "staging.#{application}"
 set :deploy_to,   "/var/www/#{domain}"
 set :app_path,    "app"

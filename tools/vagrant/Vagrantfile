@@ -52,9 +52,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :default_site_enabled => false
       },
       :project => {
-        :site_name => "sandbox",
-        :server_name => "sandbox.development.local",
-        :server_aliases => ["sandbox.development.local"],
+        :site_name => "php-vagrant-vm",
+        :server_name => "dev.php-vagrant-vm",
+        :server_aliases => [],
         :docroot => "/mnt/project",
         :allow_override => "All"
       }
