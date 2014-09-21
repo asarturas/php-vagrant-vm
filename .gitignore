@@ -6,7 +6,8 @@ tools/chef/tmp
 
 tools/vagrant/.vagrant
 
-node_modules
+node_modules/*
+!node_modules/.gitkeep
 
 web/bundles/
 web/js/*
