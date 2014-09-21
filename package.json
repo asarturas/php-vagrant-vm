@@ -1,0 +1,17 @@
+{
+    "name": "php-vagrant-vm",
+    "version": "0.1.0",
+    "author": "Arturas Smorgun <arturas@smorgun.com>",
+    "homepage": "http://arturas.smorgun.com/",
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:asarturas/php-vagrant-vm.git"
+    },
+    "engines": {
+        "node": ">= 0.10.15"
+    },
+    "dependencies": {
+        "zombie": "2.0.0-alpha31",
+        "phantomjs": "1.9.7-9"
+    }
+}
