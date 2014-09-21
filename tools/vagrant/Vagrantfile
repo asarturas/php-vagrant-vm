@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.librarian_chef.cheffile_dir = "../chef"
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "sandbox"
+    vb.name = "php-vagrant-vm"
     vb.memory = 384
     vb.gui = false
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
