@@ -39,7 +39,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :site_name => "php-vagrant-vm",
         :server_name => "dev.php-vagrant-vm",
         :server_aliases => [],
-        :docroot => "/mnt/project",
+        :docroot => "/mnt/project/web",
         :allow_override => "All"
       }
     }
