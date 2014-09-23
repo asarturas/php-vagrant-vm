@@ -21,7 +21,7 @@ Bundled with PHPSpec, Behat (including Mink, Goutte and PhantomJS via Sahi), vir
 
 Before you start:
 
-1. change `php-vagrant-vm` to your project name/domain at: `tools/vagrant/Vagrantfile`.
+1. change `vagrant.lt` to your project name/domain at: `tools/vagrant/Vagrantfile`.
 
 Installation steps:
 
@@ -31,28 +31,28 @@ Installation steps:
 1. install dependencies in composer: `$ cd /mnt/project` and `$ composer install`.
 
 P.S. Don't forget to add virtual host into `hosts` file on your machine, where you run vm:
-   (by default: `192.168.33.10   dev.php-vagrant-vm`).
+   (by default: `192.168.33.10   dev.vagrant.lt`).
 
 ##Staging Environment Provisioning Instructions
 
 Before you start:
 
-1.  change `php-vagrant-vm` to your project name/domain at: `tools/chef/site-environments/staging.json`, `tools/chef/site-nodes/staging.php-vagrant-vm.json` (latter file have to be renamed to match your project domain).
+1.  change `vagrant.lt` to your project name/domain at: `tools/chef/site-environments/staging.json`, `tools/chef/site-nodes/staging.vagrant.lt.json` (latter file have to be renamed to match your project domain).
 
 Provisioning steps:
 
-1. make sure you have passwordless access to staging via `staging.php-vagrant-vm` configured at `~/.ssh/config`;
+1. make sure you have passwordless access to staging via `staging.vagrant.lt` configured at `~/.ssh/config`;
 1. install 64bit Debian 7 on your staging environment;
 1. prepare environment to provisioning:
-   (`$ cd tools/chef && knife solo prepare staging.php-vagrant-vm`);
+   (`$ cd tools/chef && knife solo prepare staging.vagrant.lt`);
 1. provision environment:
-   (`$ knife solo cook staging.php-vagrant-vm`).
+   (`$ knife solo cook staging.vagrant.lt`).
 
 ##Staging Environment Deployment Instructions
 
 Before you start:
 
-1. change `php-vagrant-vm` to your project name/domain at: `tools/capifony/config/deploy.rb`;
+1. change `vagrant.lt` to your project name/domain at: `tools/capifony/config/deploy.rb`;
 1. create ssh key on your target staging environment:
    (`$ ssh-keygen -t rsa -C "your_email@example.com"`);
 1. add this public key as a deployment key to your project on github.
