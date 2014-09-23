@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.librarian_chef.cheffile_dir = "../chef"
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "sandbox"
+    vb.name = "dev.vagrant.lt"
     vb.memory = 384
     vb.gui = false
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
@@ -22,24 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :chef_solo do |chef|
     chef.cookbooks_path = ["../chef/cookbooks", "../chef/site-cookbooks"]
-    chef.add_recipe "project::apt-get-update"
-    chef.add_recipe "apache2"
-    chef.add_recipe "mysql::server"
-    chef.add_recipe "php"
-    chef.add_recipe "php::module_mysql"
-    chef.add_recipe "php::module_apc"
-    chef.add_recipe "php::module_curl"
-    chef.add_recipe "php::module_sqlite3"
-    chef.add_recipe "apache2::mod_php5"
-    chef.add_recipe "apache2::mod_rewrite"
-    chef.add_recipe "chef-php-extra::xdebug"
-    chef.add_recipe "chef-php-extra::module_intl"
-    chef.add_recipe "composer"
-    chef.add_recipe "git"
-    chef.add_recipe "project"
-    chef.add_recipe "project::remove-php-module-config-duplicates"
-    chef.add_recipe "project::install-and-enable-fishshell"
-    chef.add_recipe "project::add-hosts-entry"
+    chef.roles_path = "../chef/site-roles"
+    chef.add_role "web"
     chef.json = {
       :mysql_password => "root",
       :mysql => {
@@ -52,10 +36,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :default_site_enabled => false
       },
       :project => {
-        :site_name => "sandbox",
-        :server_name => "sandbox.development.local",
-        :server_aliases => ["sandbox.development.local"],
-        :docroot => "/mnt/project",
+        :site_name => "vagrant.lt",
+        :server_name => "dev.vagrant.lt",
+        :server_aliases => [],
+        :docroot => "/mnt/project/web",
         :allow_override => "All"
       }
     }

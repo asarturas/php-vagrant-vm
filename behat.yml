@@ -1,0 +1,22 @@
+default:
+  suites:
+    domain:
+      contexts:
+        - Context\DomainContext: ~
+    web:
+      contexts:
+        - Context\WebContext: ~
+  extensions:
+    SensioLabs\Behat\PageObjectExtension:
+      namespaces:
+        page: Page
+    Behat\Symfony2Extension: ~
+    Behat\MinkExtension:
+      base_url: http://dev.php-vagrant-vm/
+      browser_name: phantomjs
+      sahi: ~
+      sessions:
+        default:
+          goutte: ~
+        javascript:
+          sahi: ~

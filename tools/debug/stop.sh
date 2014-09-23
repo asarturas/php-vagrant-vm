@@ -1,0 +1,2 @@
+set -e XDEBUG_CONFIG
+set -e PHP_IDE_CONFIG

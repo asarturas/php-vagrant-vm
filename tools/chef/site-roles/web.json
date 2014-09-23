@@ -1,0 +1,35 @@
+{
+"name": "web",
+    "json_class": "Chef::Role",
+    "run_list": [
+        "recipe[project::apt-get-update]",
+        "recipe[apache2]",
+        "recipe[mysql::server]",
+        "recipe[php]",
+        "recipe[php::module_mysql]",
+        "recipe[php::module_apc]",
+        "recipe[php::module_curl]",
+        "recipe[php::module_sqlite3]",
+        "recipe[apache2::mod_php5]",
+        "recipe[apache2::mod_rewrite]",
+        "recipe[chef-php-extra::xdebug]",
+        "recipe[chef-php-extra::module_intl]",
+        "recipe[composer]",
+        "recipe[git]",
+        "recipe[project]",
+        "recipe[project::remove-php-module-config-duplicates]",
+        "recipe[project::install-and-enable-fishshell]",
+        "recipe[project::add-hosts-entry]",
+        "recipe[nodejs]",
+        "recipe[project::npm-dependencies]",
+        "recipe[java]",
+        "recipe[sahi]"
+    ],
+    "description": "Sets up all the required services for web services",
+    "chef_type": "role",
+    "default_attributes": {
+        "apache": {
+            "default_site_enabled": false
+        }
+    }
+}
