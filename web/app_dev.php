@@ -17,7 +17,7 @@ if (isset($_SERVER['HTTP_CLIENT_IP'])
                 '127.0.0.1',
                 'fe80::1',
                 '::1',
-                '192.168.33.1', // allow access to host of virtual machine
+                '192.168.33.1', // allow access to virtual machine from host
             )
         )
     || php_sapi_name() === 'cli-server')
