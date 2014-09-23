@@ -14,7 +14,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.librarian_chef.cheffile_dir = "../chef"
 
   config.vm.provider :virtualbox do |vb|
-    vb.name = "php-vagrant-vm"
+    vb.name = "dev.vagrant.lt"
     vb.memory = 384
     vb.gui = false
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
@@ -36,8 +36,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         :default_site_enabled => false
       },
       :project => {
-        :site_name => "php-vagrant-vm",
-        :server_name => "dev.php-vagrant-vm",
+        :site_name => "vagrant.lt",
+        :server_name => "dev.vagrant.lt",
         :server_aliases => [],
         :docroot => "/mnt/project/web",
         :allow_override => "All"

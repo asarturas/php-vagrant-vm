@@ -1,4 +1,4 @@
-set :application, "php-vagrant-vm"
+set :application, "vagrant.lt"
 set :domain,      "staging.#{application}"
 set :deploy_to,   "/var/www/#{domain}"
 set :app_path,    "app"
@@ -6,7 +6,7 @@ set :app_path,    "app"
 ssh_options[:forward_agent] = true
 default_run_options[:pty] = true
 
-set :repository,  "git@github.com:githubusername/#{application}.git"
+set :repository,  "git@github.com:asarturas/#{application}.git"
 set :scm,         :git
 
 set :model_manager, "doctrine"

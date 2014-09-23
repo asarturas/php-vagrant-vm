@@ -13,11 +13,11 @@
             "bind_address": "127.0.0.1"
         },
         "project": {
-            "site_name": "php-vagrant-vm",
-            "server_name": "staging.php-vagrant-vm",
+            "site_name": "vagrant.lt",
+            "server_name": "staging.vagrant.lt",
             "server_aliases": [
             ],
-            "docroot": "/var/www/staging.php-vagrant-vm/current/web",
+            "docroot": "/var/www/vagrant.lt/current/web",
             "allow_override": "All"
         }
     },
